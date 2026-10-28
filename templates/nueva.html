@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}Nueva solicitud{% endblock %}
+{% block content %}
+<a href="{{ url_for('index') }}">← Volver al panel</a>
+<h1 style="margin-top:14px">Formulario de solicitud de préstamo</h1>
+<p class="muted">Cada campo del modelo Entidad/Relación está asociado a un control de ingreso. Completa los datos correspondientes.</p>
+<div class="steps">
+  <span class="step current">1. Solicitud</span><span class="step">2. Revisión</span>
+  <span class="step">3. Riesgo</span><span class="step">4. Contrato</span><span class="step">5. Desembolso</span>
+</div>
+
+<form method="post" enctype="multipart/form-data" class="loan-form">
+  <details class="panel form-section" open>
+    <summary><span class="section-number">01</span><span><strong>Solicitar información</strong><small>Datos personales y características del préstamo</small></span></summary>
+    <div class="form-grid">
+      <div class="field"><label for="nombre">Nombre completo *</label><input id="nombre" name="nombre" required maxlength="120" placeholder="Ej. Carlos Alberto Pérez López"></div>
+      <div class="field"><label for="documento">Documento de identidad *</label><input id="documento" name="documento" required maxlength="20" placeholder="DNI o documento"></div>
+      <div class="field"><label for="email">Correo electrónico</label><input id="email" name="email" type="email" placeholder="correo@ejemplo.com"></div>
+      <div class="field"><label for="telefono">Teléfono</label><input id="telefono" name="telefono" maxlength="30" placeholder="999 888 777"></div>
+      <div class="field full"><label for="direccion">Dirección</label><input id="direccion" name="direccion" maxlength="200" placeholder="Dirección, distrito y ciudad"></div>
+      <div class="field"><label for="monto">Monto solicitado (S/) *</label><input id="monto" name="monto" type="number" min="0.01" step="0.01" required placeholder="5000.00"></div>
+      <div class="field"><label for="plazo">Plazo (meses) *</label><input id="plazo" name="plazo" type="number" min="1" max="120" required placeholder="12"></div>
+      <div class="field"><label for="ingresos">Ingreso mensual (S/) *</label><input id="ingresos" name="ingresos" type="number" min="0.01" step="0.01" required placeholder="2500.00"></div>
+      <div class="field"><label for="documentos">Documentos adjuntos</label><input id="documentos" name="documentos" type="file" multiple accept=".pdf,.png,.jpg,.jpeg"><small class="help">Puedes adjuntar archivos de prueba en PDF o imagen. Máximo total: 10 MB.</small></div>
+    </div>
+  </details>
+
+  <details class="panel form-section" open>
+    <summary><span class="section-number">02</span><span><strong>Información de la evaluación y aprobación</strong><small>Datos para el análisis inicial de riesgo y revisión documental</small></span></summary>
+    <div class="form-grid">
+      <div class="field"><label for="deudas">Total de deudas (S/)</label><input id="deudas" name="deudas" type="number" min="0" step="0.01" placeholder="300.00"><small class="help">Si todavía no se evaluó, puedes dejarlo vacío.</small></div>
+      <div class="field"><label for="puntuacion">Puntuación crediticia (0–1000)</label><input id="puntuacion" name="puntuacion" type="number" min="0" max="1000" step="1" placeholder="750"></div>
+      <div class="field"><label for="historial">Historial crediticio</label><select id="historial" name="historial"><option value="">Selecciona...</option><option>Bueno</option><option>Regular</option><option>Malo</option></select></div>
+      <div class="field"><label for="recomendacion">Recomendación del analista</label><select id="recomendacion" name="recomendacion"><option value="">Pendiente de evaluación</option><option>Aprobar</option><option>Rechazar</option></select></div>
+      <div class="field full"><label for="justificacion">Justificación / comentarios del analista</label><textarea id="justificacion" name="justificacion" rows="3" placeholder="Escribe el motivo de la recomendación o las observaciones."></textarea></div>
+      <div class="field"><label for="documentacion">Estado de la documentación</label><select id="documentacion" name="documentacion"><option value="">Pendiente de revisión</option><option>Completa</option><option>Incompleta</option></select></div>
+      <div class="field"><label for="comentarios_revision">Comentarios de revisión</label><textarea id="comentarios_revision" name="comentarios_revision" rows="2" placeholder="Observaciones sobre los documentos presentados"></textarea></div>
+    </div>
+    <p class="notice">La recomendación es un registro inicial. La aprobación definitiva se realiza después de revisar los documentos y validar la evaluación.</p>
+  </details>
+
+  <div class="form-actions"><button type="submit">Registrar solicitud</button><a class="btn secondary" href="{{ url_for('index') }}">Cancelar</a></div>
+</form>
+{% endblock %}

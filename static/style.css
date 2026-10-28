@@ -1,0 +1,32 @@
+
+:root{font-family:Inter,Segoe UI,Arial,sans-serif;color:#172033;background:#f4f7fb}
+*{box-sizing:border-box}body{margin:0}a{color:#2457c5;text-decoration:none}a:hover{text-decoration:underline}
+.nav{background:#13243a;color:white;padding:18px max(calc((100% - 1100px)/2),22px);display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}
+.nav a{color:white;font-weight:600}.brand{font-size:19px;font-weight:800}.wrap{max-width:1100px;margin:30px auto;padding:0 20px}
+h1{font-size:28px;margin:0 0 8px}h2{font-size:20px;margin:0 0 14px}.muted{color:#68758a}.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:14px;margin:24px 0}
+.card,.panel{background:white;border:1px solid #e1e7f0;border-radius:14px;padding:20px;box-shadow:0 5px 18px #1b2d4a0a}
+.metric{font-size:30px;font-weight:800;margin-top:8px}.actions{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}
+.btn,button{display:inline-block;background:#2457c5;color:white;padding:11px 15px;border:0;border-radius:8px;font-weight:700;cursor:pointer;font-size:14px}
+.btn.secondary,button.secondary{background:#e8eef8;color:#233c68}.btn.danger,button.danger{background:#a72f3d}
+table{width:100%;border-collapse:collapse;background:white}th,td{text-align:left;padding:13px 12px;border-bottom:1px solid #e9edf4;font-size:14px}th{color:#59677d;background:#f8faff}
+.table-wrap{overflow-x:auto;border:1px solid #e1e7f0;border-radius:12px}.status{display:inline-block;padding:5px 9px;border-radius:30px;background:#edf1f7;font-size:12px;font-weight:700}.status.Aprobado{background:#e0f5e8;color:#16713d}.status.Rechazado{background:#ffe8e9;color:#a52635}.status.Desembolsado{background:#e0efff;color:#2457c5}
+form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}label{font-size:14px;font-weight:700;display:block;margin-bottom:7px}input,select,textarea{width:100%;padding:11px 12px;border:1px solid #cdd6e4;border-radius:8px;font:inherit;background:white}textarea{min-height:90px;resize:vertical}.field.full{grid-column:1/-1}.help{font-size:12px;color:#6d788a;margin-top:5px}.alert{padding:12px 15px;border-radius:9px;margin:12px 0;background:#e7efff;color:#214b98}.alert.error{background:#ffeded;color:#982d38}.alert.success{background:#e3f7eb;color:#1b6d3b}.section{margin-top:20px}.detail-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}.kv{margin:10px 0}.kv span{display:block;color:#68758a;font-size:12px;margin-bottom:4px}.kv strong{overflow-wrap:anywhere}.steps{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0}.step{background:#e8eef8;border-radius:7px;padding:8px 10px;font-size:12px}.step.current{background:#dbe8ff;color:#174cb2;font-weight:800}
+@media(max-width:650px){.wrap{margin:22px auto}form{grid-template-columns:1fr}.field.full{grid-column:auto}.nav{padding:16px 20px}h1{font-size:24px}}
+
+/* Formulario por secciones, inspirado en el ejemplo de la guía */
+.loan-form{display:flex;flex-direction:column;gap:18px}
+.form-section{padding:0;overflow:hidden;border-radius:13px}
+.form-section summary{display:flex;align-items:center;gap:14px;list-style:none;cursor:pointer;padding:18px 20px;background:linear-gradient(110deg,#f7faff,#eef4fb);border-bottom:1px solid #e1e7f0}
+.form-section summary::-webkit-details-marker{display:none}
+.form-section summary:after{content:'＋';margin-left:auto;color:#2457c5;font-size:20px;font-weight:700}
+.form-section[open] summary:after{content:'−'}
+.form-section summary strong{display:block;font-size:16px;color:#193653}
+.form-section summary small{display:block;color:#68758a;margin-top:4px;font-size:12px}
+.section-number{display:grid;place-items:center;min-width:38px;height:38px;border-radius:10px;background:#dce9fb;color:#2457c5;font-weight:800}
+.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;padding:22px}
+.form-grid .field{min-width:0}
+.form-grid .field.full{grid-column:1/-1}
+.form-grid textarea{min-height:82px}
+.notice{margin:0 22px 22px;padding:12px 14px;border-radius:8px;background:#f0f5fc;color:#4a5d78;font-size:13px}
+.form-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+@media(max-width:650px){.form-grid{grid-template-columns:1fr;padding:16px}.form-grid .field.full{grid-column:auto}.form-section summary{padding:15px}}
